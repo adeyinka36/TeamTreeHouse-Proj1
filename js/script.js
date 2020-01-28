@@ -41,16 +41,21 @@ const quotesArray = [
 },
 {quote:"You only live once, but if you do it right, once is enough.",   
   source:"Mae West"
+
 },
 {quote:"The State is that organization in society which attempts to maintain a monopoly of the use of force and violence in a given territorial area; in particular, it is the only organization in society that obtains its revenue not by voluntary contribution or payment for services rendered but by coercion.",   
   source:"Murray Rothbard",
   citation:"Anatomy of the state",
-  year:1974
+  year:1974,
+  color:"red",
+  tag:"Economics"
 },
 {quote:"In a battle between force and idea, the later always prevails",
   source:"Ludwig Von Mises",
   citation:"Human Action",
-  year:1949
+  year:1949,
+  color:"blue",
+  tag:"phillosophy"
 },
 
 ]
@@ -71,15 +76,25 @@ function printQuote(){
      var store1 =`<p class="quote">${returnedObj.quote} </p>
                  <p class="source">${returnedObj.source}</p>`
          document.getElementById("quote-box").innerHTML= store1;
+         
+        
+        
   }
   else{
     var store2 =`<p class="quote">${returnedObj.quote}</p>
                 <p class="source">${returnedObj.source}
                   <span class="citation">${returnedObj.citation}</span>
                   <span class="year">${returnedObj.year} </span>
+                  <span class="citation">${returnedObj.tag}</span>
                 </p>`
+                docBody.style.backgroundColor=returnedObj.color;
                 document.getElementById("quote-box").innerHTML= store2;
+                
   }      
 
 }
 
+// function for automatic quote generation every 7 seconds 
+window.onload=function(){
+  setInterval(printQuote,7000)
+}
